@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{380EB901-A81D-4101-9DB6-4A87F03D22D5}|Debug">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Coti.Web.Api/Program.cs">
+    <Files>
+      <File FileName="Coti.Services/Security/ClaimsIdentityExt.cs" Line="19" Column="2" />
+      <File FileName="Coti.Web.Api/appsettings.json" Line="12" Column="126" />
+      <File FileName="Coti.Web.Api/dev.web.config" Line="1" Column="1" />
+      <File FileName="Coti.Web.Api/global.json" Line="1" Column="1" />
+      <File FileName="Coti.Web.Api/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Coti.Starter.Core" expanded="True">
+            <Node name="Coti.Services" expanded="True">
+              <Node name="Security" expanded="True" />
+            </Node>
+            <Node name="Coti.Web.Api" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Coti.Web.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

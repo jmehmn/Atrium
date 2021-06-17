@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coti.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Coti.Web.Api.Controllers.PingApiController">
+            <summary>
+            This controller is not required for the application to work. 
+            You could remove it but it serves as a simple entry point for development
+            </summary>
+        </member>
+    </members>
+</doc>

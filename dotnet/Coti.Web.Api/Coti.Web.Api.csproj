@@ -1,0 +1,131 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>Coti-Web-E43F2A1C-FED9-410C-B432-08341FD13E2B</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <NodeRoot>node-api\</NodeRoot>
+    <Authors>Gregorio Rojas</Authors>
+    <Company>Coti Enterprises</Company>
+    <Product>Coti Api Application</Product>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**;$(NodeRoot)node_modules\**</DefaultItemExcludes>
+    <AssemblyName>Coti.Web.Api</AssemblyName>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+  </PropertyGroup>
+  <PropertyGroup>
+     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ValuesController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="logs\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="$(NodeRoot)**" />
+    <Content Remove="logs\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="$(NodeRoot)**" />
+    <None Remove="logs\**" />
+
+    <!--<Content  Remove="ClientApp\**" CopyToPublishDirectory="PreserveNewest" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="debug.log" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt-Core" Version="2.0.0" />
+
+
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.1" />
+
+
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+
+
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+
+
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.1" />
+
+
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+
+
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+
+    <PackageReference Include="Sendgrid" Version="9.12.6" />
+
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Coti.Data\Coti.Data.csproj" />
+    <ProjectReference Include="..\Coti.Models\Coti.Models.csproj" />
+    <ProjectReference Include="..\Coti.Services\Coti.Services.csproj" />
+    <ProjectReference Include="..\Coti.Web.Core\Coti.Web.Core.csproj" />
+    <ProjectReference Include="..\Coti.Web.Models\Coti.Web.Models.csproj" />
+  </ItemGroup>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)build\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+
+    <ItemGroup>
+      <DistFiles Include="$(NodeRoot)\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+
+
+
+
+</Project>
