@@ -61,8 +61,6 @@ namespace Coti.Services
         public Class Get(int id)
         {
 
-           
-
             string procName = "[dbo].[Classes_GetWith_ClasslistById]";
 
             Class aClass = null;
@@ -77,7 +75,46 @@ namespace Coti.Services
                 paramCollection.AddWithValue("@Id", id);
             }, delegate (IDataReader reader, short set) //Single record mapper
             {
-                aClass = MapClassById(reader);
+                Class thisClass = new Class();
+
+                int startingIndex = 0;
+
+                thisClass.Id = reader.GetSafeInt32(startingIndex++);
+                thisClass.Name = reader.GetSafeString(startingIndex++);
+                thisClass.Description = reader.GetSafeString(startingIndex++);
+                thisClass.DateTime = reader.GetSafeDateTime(startingIndex++);
+                thisClass.Location_Id = reader.GetSafeInt32(startingIndex++);
+                thisClass.CoverImage_Id = reader.GetSafeInt32(startingIndex++);
+                thisClass.IsActive = reader.GetSafeBool(startingIndex++);
+                thisClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
+                thisClass.DateModified = reader.GetSafeDateTime(startingIndex++);
+                thisClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
+                thisClass.ClassCount = reader.GetInt32(startingIndex++);
+
+                ////Long version of NewtonSoft
+                //string classListAsString = reader.GetString(startingIndex++);
+
+                //if (!string.IsNullOrEmpty(classListAsString))
+                //{
+                //    thisClass.ClassList = JsonConvert.DeserializeObject<List<ClassList>>(classListAsString);
+                //}
+
+                //if (aClass == null)
+                //{
+                //    aClass = new Class();
+                //}
+
+                //aClass = thisClass;
+
+                ////or doing this is the short and sweet version
+                thisClass.Member = reader.DeserializeObject<List<Member>>(startingIndex++);
+
+                if (aClass == null)
+                {
+                    aClass = new Class();
+                }
+
+                aClass = thisClass;
             }
 
 
@@ -117,7 +154,7 @@ namespace Coti.Services
 
                     if (!string.IsNullOrEmpty(classListAsString))
                     {
-                        aClass.ClassList = JsonConvert.DeserializeObject<List<ClassList>>(classListAsString);
+                        aClass.Member = JsonConvert.DeserializeObject<List<Member>>(classListAsString);
                     }
 
                     //or doing this is the short and sweet version

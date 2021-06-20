@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Core/Coti.Web.Core.csproj": {}
+    "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Core\\Coti.Web.Core.csproj": {}
   },
   "projects": {
-    "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Data/Coti.Data.csproj": {
+    "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Data\\Coti.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Data/Coti.Data.csproj",
+        "projectUniqueName": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Data\\Coti.Data.csproj",
         "projectName": "Coti.Data",
-        "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Data/Coti.Data.csproj",
-        "packagesPath": "/Users/jmehmn/.nuget/packages/",
-        "outputPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Data/obj/",
+        "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Data\\Coti.Data.csproj",
+        "packagesPath": "C:\\Users\\jmehmn\\.nuget\\packages\\",
+        "outputPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jmehmn/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jmehmn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,29 +67,31 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj": {
+    "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj",
+        "projectUniqueName": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj",
         "projectName": "Coti.Models",
-        "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj",
-        "packagesPath": "/Users/jmehmn/.nuget/packages/",
-        "outputPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/obj/",
+        "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj",
+        "packagesPath": "C:\\Users\\jmehmn\\.nuget\\packages\\",
+        "outputPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jmehmn/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jmehmn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -120,40 +124,42 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Services/Coti.Services.csproj": {
+    "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Services\\Coti.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Services/Coti.Services.csproj",
+        "projectUniqueName": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Services\\Coti.Services.csproj",
         "projectName": "Coti.Services",
-        "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Services/Coti.Services.csproj",
-        "packagesPath": "/Users/jmehmn/.nuget/packages/",
-        "outputPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Services/obj/",
+        "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Services\\Coti.Services.csproj",
+        "packagesPath": "C:\\Users\\jmehmn\\.nuget\\packages\\",
+        "outputPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jmehmn/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jmehmn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Data/Coti.Data.csproj": {
-                "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Data/Coti.Data.csproj"
+              "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Data\\Coti.Data.csproj": {
+                "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Data\\Coti.Data.csproj"
               },
-              "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj": {
-                "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj"
+              "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj": {
+                "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj"
               }
             }
           }
@@ -192,43 +198,45 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Core/Coti.Web.Core.csproj": {
+    "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Core\\Coti.Web.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Core/Coti.Web.Core.csproj",
+        "projectUniqueName": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Core\\Coti.Web.Core.csproj",
         "projectName": "Coti.Web.Core",
-        "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Core/Coti.Web.Core.csproj",
-        "packagesPath": "/Users/jmehmn/.nuget/packages/",
-        "outputPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Core/obj/",
+        "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Core\\Coti.Web.Core.csproj",
+        "packagesPath": "C:\\Users\\jmehmn\\.nuget\\packages\\",
+        "outputPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jmehmn/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jmehmn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj": {
-                "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/Coti.Models.csproj"
+              "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj": {
+                "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Models\\Coti.Models.csproj"
               },
-              "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Services/Coti.Services.csproj": {
-                "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Services/Coti.Services.csproj"
+              "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Services\\Coti.Services.csproj": {
+                "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Services\\Coti.Services.csproj"
               },
-              "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/Coti.Web.Models.csproj": {
-                "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/Coti.Web.Models.csproj"
+              "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\Coti.Web.Models.csproj": {
+                "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\Coti.Web.Models.csproj"
               }
             }
           }
@@ -283,33 +291,38 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/Coti.Web.Models.csproj": {
+    "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\Coti.Web.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/Coti.Web.Models.csproj",
+        "projectUniqueName": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\Coti.Web.Models.csproj",
         "projectName": "Coti.Web.Models",
-        "projectPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/Coti.Web.Models.csproj",
-        "packagesPath": "/Users/jmehmn/.nuget/packages/",
-        "outputPath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/obj/",
+        "projectPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\Coti.Web.Models.csproj",
+        "packagesPath": "C:\\Users\\jmehmn\\.nuget\\packages\\",
+        "outputPath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/jmehmn/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jmehmn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -342,7 +355,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fpYoXM01QUzdqDLuaIJmbQ7GixcElwtlwhI8NxqQQGmURCuZPdymmTORGqLviz4jhMIG/KjcjrZqSq209sO4qQ==",
+  "dgSpecHash": "9AasyKuXi6nSwFZwhqpEYZfIa49hBMO7aaQNwj+sYDBl1DADz4xJjIgoPErfcQzSihQYtcJtiqY+tXjiUFWXig==",
   "success": true,
-  "projectFilePath": "/Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Web.Models/Coti.Web.Models.csproj",
+  "projectFilePath": "C:\\MyCode\\Portfolio_Projects\\Atrium\\dotnet\\Coti.Web.Models\\Coti.Web.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

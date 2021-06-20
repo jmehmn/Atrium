@@ -6,8 +6,7 @@ namespace Coti.Models.Domain
 {
     public class ClassList
     {
-        public string Email { get; set; }
-
+        public int Class_Id { get; set; }
         public List<Member> Member { get; set; }
       
     }

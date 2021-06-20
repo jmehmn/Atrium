@@ -28,6 +28,6 @@ namespace Coti.Models.Domain
 
         public int ClassCount { get; set; }
 
-        public List<ClassList> ClassList { get; set; }
+        public List<Member> Member { get; set; }
     }
 }

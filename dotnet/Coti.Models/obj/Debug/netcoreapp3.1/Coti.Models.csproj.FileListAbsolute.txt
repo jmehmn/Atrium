@@ -25,3 +25,12 @@ C:/MyCode/Portfolio_Projects/Atrium-App/dotnet/Coti.Models/obj/Debug/netcoreapp3
 /Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/obj/Debug/netcoreapp3.1/Coti.Models.csproj.CoreCompileInputs.cache
 /Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/obj/Debug/netcoreapp3.1/Coti.Models.dll
 /Users/jmehmn/Documents/Code/Atrium/dotnet/Coti.Models/obj/Debug/netcoreapp3.1/Coti.Models.pdb
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\bin\Debug\netcoreapp3.1\Coti.Models.deps.json
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\bin\Debug\netcoreapp3.1\Coti.Models.dll
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\bin\Debug\netcoreapp3.1\Coti.Models.pdb
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\obj\Debug\netcoreapp3.1\Coti.Models.csprojAssemblyReference.cache
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\obj\Debug\netcoreapp3.1\Coti.Models.AssemblyInfoInputs.cache
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\obj\Debug\netcoreapp3.1\Coti.Models.AssemblyInfo.cs
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\obj\Debug\netcoreapp3.1\Coti.Models.csproj.CoreCompileInputs.cache
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\obj\Debug\netcoreapp3.1\Coti.Models.dll
+C:\MyCode\Portfolio_Projects\Atrium\dotnet\Coti.Models\obj\Debug\netcoreapp3.1\Coti.Models.pdb
