@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Coti.Models;
 
 namespace Coti.Web.Api.Controllers
 {
@@ -77,6 +78,47 @@ namespace Coti.Web.Api.Controllers
                 else
                 {
                     response = new ItemResponse<Class> { Item = @class };
+                }
+            }
+            catch (Exception ex)
+            {
+                iCode = 500;
+                response = new ErrorResponse($"Generic Error: {ex.Message}");
+                base.Logger.LogError(ex.ToString());
+            }
+
+            return StatusCode(iCode, response);
+
+        }
+
+        [HttpGet("my-classes")]
+        public ActionResult<ItemResponse<Paged<Class>>> GetByUser(int pageIndex, int pageSize)
+        {
+            int iCode = 200;
+
+            ActionResult result = null;
+
+            BaseResponse response = null;
+
+            int userId = _authService.GetCurrentUserId();
+
+            if(userId !> 0)
+            {
+                iCode = 404;
+                response = new ErrorResponse("Application resource not found.");
+            }
+            try
+            {
+                Paged<Class> paged = _service.GetByUser(pageIndex, pageSize, userId);
+
+                if (paged == null)
+                {
+                    iCode = 404;
+                    response = new ErrorResponse("Application resource not found.");
+                }
+                else
+                {
+                    response = new ItemResponse<Paged<Class>> { Item = paged };
                 }
             }
             catch (Exception ex)

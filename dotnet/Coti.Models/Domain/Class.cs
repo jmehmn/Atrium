@@ -14,9 +14,9 @@ namespace Coti.Models.Domain
 
         public DateTime DateTime { get; set; }
 
-        public int Location_Id { get; set; }
+        public Location Location { get; set; }
 
-        public int CoverImage_Id { get; set; }
+        public CoverImage CoverImage { get; set; }
 
         public bool IsActive { get; set; }
 

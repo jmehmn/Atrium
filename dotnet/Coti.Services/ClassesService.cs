@@ -8,14 +8,17 @@ using System.Text;
 using Coti.Data;
 using Coti.Models.Requests.Classes;
 using Newtonsoft.Json;
+using Coti.Models;
 
 namespace Coti.Services
 {
     public class ClassesService : IClassesService
     {
+        private IAuthenticationService<int> _authService;
         IDataProvider _data = null;
-        public ClassesService(IDataProvider data)
+        public ClassesService(IAuthenticationService<int> authService, IDataProvider data)
         {
+            _authService = authService;
             _data = data;
         }
 
@@ -65,11 +68,6 @@ namespace Coti.Services
 
             Class aClass = null;
 
-            if(id > 1000)
-            {
-                throw new ArgumentOutOfRangeException("This is a simulated error");
-            }
-
             _data.ExecuteCmd(procName, delegate (SqlParameterCollection paramCollection)
             {
                 paramCollection.AddWithValue("@Id", id);
@@ -77,14 +75,25 @@ namespace Coti.Services
             {
                 Class thisClass = new Class();
 
+                thisClass.Location = new Location();
+
+                thisClass.CoverImage = new CoverImage();
+
                 int startingIndex = 0;
 
                 thisClass.Id = reader.GetSafeInt32(startingIndex++);
                 thisClass.Name = reader.GetSafeString(startingIndex++);
                 thisClass.Description = reader.GetSafeString(startingIndex++);
                 thisClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-                thisClass.Location_Id = reader.GetSafeInt32(startingIndex++);
-                thisClass.CoverImage_Id = reader.GetSafeInt32(startingIndex++);
+                thisClass.Location.Id = reader.GetSafeInt32(startingIndex++);
+                thisClass.Location.Name = reader.GetSafeString(startingIndex++);
+                thisClass.Location.LineOne = reader.GetSafeString(startingIndex++);
+                thisClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
+                thisClass.Location.City = reader.GetSafeString(startingIndex++);
+                thisClass.Location.State = reader.GetSafeString(startingIndex++);
+                thisClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
+                thisClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
+                thisClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
                 thisClass.IsActive = reader.GetSafeBool(startingIndex++);
                 thisClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
                 thisClass.DateModified = reader.GetSafeDateTime(startingIndex++);
@@ -123,6 +132,74 @@ namespace Coti.Services
             return aClass;
         }
 
+        public Paged<Class> GetByUser(int pageIndex, int pageSize, int userId) {
+
+            Paged<Class> pagedResult = null;
+
+            List<Class> result = null;
+
+            int totalCount = 0;
+            {
+
+                string procName = "[dbo].[Classes_GetBy_User]";
+
+                _data.ExecuteCmd(procName, inputParamMapper: delegate (SqlParameterCollection paramCollection)
+                   {
+                       paramCollection.AddWithValue("@pageIndex", pageIndex);
+                       paramCollection.AddWithValue("@pageSize", pageSize);
+                       paramCollection.AddWithValue("@user_Id", userId);
+                   },
+                   singleRecordMapper: delegate (IDataReader reader, short set)
+                   {
+                       Class aClass = new Class();
+
+                       aClass.Location = new Location();
+
+                       aClass.CoverImage = new CoverImage();
+
+                       int startingIndex = 0;
+
+                       aClass.Id = reader.GetSafeInt32(startingIndex++);
+                       aClass.Name = reader.GetSafeString(startingIndex++);
+                       aClass.Description = reader.GetSafeString(startingIndex++);
+                       aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
+                       aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
+                       aClass.Location.Name = reader.GetSafeString(startingIndex++);
+                       aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
+                       aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
+                       aClass.Location.City = reader.GetSafeString(startingIndex++);
+                       aClass.Location.State = reader.GetSafeString(startingIndex++);
+                       aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
+                       aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
+                       aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
+                       aClass.IsActive = reader.GetSafeBool(startingIndex++);
+                       aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
+                       aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
+                       aClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
+                       aClass.ClassCount = reader.GetInt32(startingIndex++);
+
+                       if (totalCount == 0)
+                       {
+                           totalCount = reader.GetSafeInt32(17);
+                       }
+
+                       if (result == null)
+                       {
+                           result = new List<Class>();
+                       }
+
+                       result.Add(aClass);
+                   });
+
+                if (result != null)
+                {
+                    pagedResult = new Paged<Class>(result, pageIndex, pageSize, totalCount);
+                }
+            }
+
+            return pagedResult;
+        }
+
         public List<Class> GetAll()
         {
 
@@ -135,14 +212,25 @@ namespace Coti.Services
                 {
                     Class aClass = new Class();
 
+                    aClass.Location = new Location();
+
+                    aClass.CoverImage = new CoverImage();
+
                     int startingIndex = 0;
 
                     aClass.Id = reader.GetSafeInt32(startingIndex++);
                     aClass.Name = reader.GetSafeString(startingIndex++);
                     aClass.Description = reader.GetSafeString(startingIndex++);
                     aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-                    aClass.Location_Id = reader.GetSafeInt32(startingIndex++);
-                    aClass.CoverImage_Id = reader.GetSafeInt32(startingIndex++);
+                    aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
+                    aClass.Location.Name = reader.GetSafeString(startingIndex++);
+                    aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
+                    aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
+                    aClass.Location.City = reader.GetSafeString(startingIndex++);
+                    aClass.Location.State = reader.GetSafeString(startingIndex++);
+                    aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
+                    aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
+                    aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
                     aClass.IsActive = reader.GetSafeBool(startingIndex++);
                     aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
                     aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
@@ -150,15 +238,15 @@ namespace Coti.Services
                     aClass.ClassCount = reader.GetInt32(startingIndex++);
 
                     //longer version using newtonsoft
-                    string classListAsString = reader.GetString(startingIndex++);
+                    //string classListAsString = reader.GetString(startingIndex++);
 
-                    if (!string.IsNullOrEmpty(classListAsString))
-                    {
-                        aClass.Member = JsonConvert.DeserializeObject<List<Member>>(classListAsString);
-                    }
+                    //if (!string.IsNullOrEmpty(classListAsString))
+                    //{
+                    //    aClass.Member = JsonConvert.DeserializeObject<List<Member>>(classListAsString);
+                    //}
 
                     //or doing this is the short and sweet version
-                    //aClass.ClassList = reader.DeserializeObject<List<ClassList>>(startingIndex++);
+                    aClass.Member = reader.DeserializeObject<List<Member>>(startingIndex++);
 
                     if (myClassList == null)
                     {
@@ -186,14 +274,25 @@ namespace Coti.Services
         {
             Class aClass = new Class();
 
+            aClass.Location = new Location();
+
+            aClass.CoverImage = new CoverImage();
+
             int startingIndex = 0;
 
             aClass.Id = reader.GetSafeInt32(startingIndex++);
             aClass.Name = reader.GetSafeString(startingIndex++);
             aClass.Description = reader.GetSafeString(startingIndex++);
             aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-            aClass.Location_Id = reader.GetSafeInt32(startingIndex++);
-            aClass.CoverImage_Id = reader.GetSafeInt32(startingIndex++);
+            aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
+            aClass.Location.Name = reader.GetSafeString(startingIndex++);
+            aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
+            aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
+            aClass.Location.City = reader.GetSafeString(startingIndex++);
+            aClass.Location.State = reader.GetSafeString(startingIndex++);
+            aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
+            aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
+            aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
             aClass.IsActive = reader.GetSafeBool(startingIndex++);
             aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
             aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
@@ -207,14 +306,25 @@ namespace Coti.Services
         {
             Class aClass = new Class();
 
+            aClass.Location = new Location();
+
+            aClass.CoverImage = new CoverImage();
+
             int startingIndex = 0;
 
             aClass.Id = reader.GetSafeInt32(startingIndex++);
             aClass.Name = reader.GetSafeString(startingIndex++);
             aClass.Description = reader.GetSafeString(startingIndex++);
             aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-            aClass.Location_Id = reader.GetSafeInt32(startingIndex++);
-            aClass.CoverImage_Id = reader.GetSafeInt32(startingIndex++);
+            aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
+            aClass.Location.Name = reader.GetSafeString(startingIndex++);
+            aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
+            aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
+            aClass.Location.City = reader.GetSafeString(startingIndex++);
+            aClass.Location.State = reader.GetSafeString(startingIndex++);
+            aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
+            aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
+            aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
             aClass.IsActive = reader.GetSafeBool(startingIndex++);
             aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
             aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
