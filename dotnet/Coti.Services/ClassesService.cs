@@ -149,40 +149,11 @@ namespace Coti.Services
                        paramCollection.AddWithValue("@pageSize", pageSize);
                        paramCollection.AddWithValue("@user_Id", userId);
                    },
-                   singleRecordMapper: delegate (IDataReader reader, short set)
+                   (reader, recordSetIndex) =>
                    {
-                       Class aClass = new Class();
-
-                       aClass.Location = new Location();
-
-                       aClass.CoverImage = new CoverImage();
-
-                       int startingIndex = 0;
-
-                       aClass.Id = reader.GetSafeInt32(startingIndex++);
-                       aClass.Name = reader.GetSafeString(startingIndex++);
-                       aClass.Description = reader.GetSafeString(startingIndex++);
-                       aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-                       aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
-                       aClass.Location.Name = reader.GetSafeString(startingIndex++);
-                       aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
-                       aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
-                       aClass.Location.City = reader.GetSafeString(startingIndex++);
-                       aClass.Location.State = reader.GetSafeString(startingIndex++);
-                       aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
-                       aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
-                       aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
-                       aClass.IsActive = reader.GetSafeBool(startingIndex++);
-                       aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
-                       aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
-                       aClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
-                       aClass.ClassCount = reader.GetInt32(startingIndex++);
-
-                       if (totalCount == 0)
-                       {
-                           totalCount = reader.GetSafeInt32(17);
-                       }
-
+                       Class aClass = MapClass(reader);
+                       totalCount = reader.GetSafeInt32(18);
+                      
                        if (result == null)
                        {
                            result = new List<Class>();

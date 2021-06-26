@@ -96,15 +96,13 @@ namespace Coti.Web.Api.Controllers
         {
             int iCode = 200;
 
-            ActionResult result = null;
-
             BaseResponse response = null;
 
             int userId = _authService.GetCurrentUserId();
 
             if(userId !> 0)
             {
-                iCode = 404;
+                iCode = 403;
                 response = new ErrorResponse("Application resource not found.");
             }
             try
