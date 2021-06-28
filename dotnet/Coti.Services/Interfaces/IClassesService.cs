@@ -10,7 +10,7 @@ namespace Coti.Services
         int Add(ClassAddRequest model, int userId);
         Class Get(int id);
 
-        Paged<Class> GetByUser(int pageIndex, int pageSize, int userId);
+        Paged<MemberClass> GetByUser(int pageIndex, int pageSize, int userId);
         List<Class> GetAll();
         void Update(ClassUpdateRequest model);
         void Delete(int id);

@@ -73,32 +73,9 @@ namespace Coti.Services
                 paramCollection.AddWithValue("@Id", id);
             }, delegate (IDataReader reader, short set) //Single record mapper
             {
-                Class thisClass = new Class();
+                Class thisClass = MapClass(reader);
 
-                thisClass.Location = new Location();
-
-                thisClass.CoverImage = new CoverImage();
-
-                int startingIndex = 0;
-
-                thisClass.Id = reader.GetSafeInt32(startingIndex++);
-                thisClass.Name = reader.GetSafeString(startingIndex++);
-                thisClass.Description = reader.GetSafeString(startingIndex++);
-                thisClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-                thisClass.Location.Id = reader.GetSafeInt32(startingIndex++);
-                thisClass.Location.Name = reader.GetSafeString(startingIndex++);
-                thisClass.Location.LineOne = reader.GetSafeString(startingIndex++);
-                thisClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
-                thisClass.Location.City = reader.GetSafeString(startingIndex++);
-                thisClass.Location.State = reader.GetSafeString(startingIndex++);
-                thisClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
-                thisClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
-                thisClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
-                thisClass.IsActive = reader.GetSafeBool(startingIndex++);
-                thisClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
-                thisClass.DateModified = reader.GetSafeDateTime(startingIndex++);
-                thisClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
-                thisClass.ClassCount = reader.GetInt32(startingIndex++);
+                thisClass.Member = reader.DeserializeObject< List<Member>>(18);
 
                 ////Long version of NewtonSoft
                 //string classListAsString = reader.GetString(startingIndex++);
@@ -116,7 +93,7 @@ namespace Coti.Services
                 //aClass = thisClass;
 
                 ////or doing this is the short and sweet version
-                thisClass.Member = reader.DeserializeObject<List<Member>>(startingIndex++);
+                
 
                 if (aClass == null)
                 {
@@ -132,11 +109,11 @@ namespace Coti.Services
             return aClass;
         }
 
-        public Paged<Class> GetByUser(int pageIndex, int pageSize, int userId) {
+        public Paged<MemberClass> GetByUser(int pageIndex, int pageSize, int userId) {
 
-            Paged<Class> pagedResult = null;
+            Paged<MemberClass> pagedResult = null;
 
-            List<Class> result = null;
+            List<MemberClass> result = null;
 
             int totalCount = 0;
             {
@@ -151,20 +128,22 @@ namespace Coti.Services
                    },
                    (reader, recordSetIndex) =>
                    {
-                       Class aClass = MapClass(reader);
+
+                       MemberClass myClass = MapMemberClass(reader);
                        totalCount = reader.GetSafeInt32(18);
-                      
+
+
                        if (result == null)
                        {
-                           result = new List<Class>();
+                           result = new List<MemberClass>();
                        }
 
-                       result.Add(aClass);
+                       result.Add(myClass);
                    });
 
                 if (result != null)
                 {
-                    pagedResult = new Paged<Class>(result, pageIndex, pageSize, totalCount);
+                    pagedResult = new Paged<MemberClass>(result, pageIndex, pageSize, totalCount);
                 }
             }
 
@@ -181,32 +160,7 @@ namespace Coti.Services
             _data.ExecuteCmd(procaName, inputParamMapper: null,
                 singleRecordMapper: delegate (IDataReader reader, short set)
                 {
-                    Class aClass = new Class();
-
-                    aClass.Location = new Location();
-
-                    aClass.CoverImage = new CoverImage();
-
-                    int startingIndex = 0;
-
-                    aClass.Id = reader.GetSafeInt32(startingIndex++);
-                    aClass.Name = reader.GetSafeString(startingIndex++);
-                    aClass.Description = reader.GetSafeString(startingIndex++);
-                    aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-                    aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
-                    aClass.Location.Name = reader.GetSafeString(startingIndex++);
-                    aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
-                    aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
-                    aClass.Location.City = reader.GetSafeString(startingIndex++);
-                    aClass.Location.State = reader.GetSafeString(startingIndex++);
-                    aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
-                    aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
-                    aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
-                    aClass.IsActive = reader.GetSafeBool(startingIndex++);
-                    aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
-                    aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
-                    aClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
-                    aClass.ClassCount = reader.GetInt32(startingIndex++);
+                    Class aClass = MapClass(reader);
 
                     //longer version using newtonsoft
                     //string classListAsString = reader.GetString(startingIndex++);
@@ -217,7 +171,7 @@ namespace Coti.Services
                     //}
 
                     //or doing this is the short and sweet version
-                    aClass.Member = reader.DeserializeObject<List<Member>>(startingIndex++);
+                    aClass.Member = reader.DeserializeObject<List<Member>>(18);
 
                     if (myClassList == null)
                     {
@@ -240,6 +194,8 @@ namespace Coti.Services
             }, returnParameters: null);
                 
         }
+
+       
 
         private static Class MapClass(IDataReader reader)
         {
@@ -269,40 +225,41 @@ namespace Coti.Services
             aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
             aClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
             aClass.ClassCount = reader.GetInt32(startingIndex++);
+            
 
             return aClass;
         }
 
-        private static Class MapClassById(IDataReader reader)
+        private static MemberClass MapMemberClass(IDataReader reader)
         {
-            Class aClass = new Class();
+            MemberClass myClass = new MemberClass();
 
-            aClass.Location = new Location();
+            myClass.Location = new Location();
 
-            aClass.CoverImage = new CoverImage();
+            myClass.CoverImage = new CoverImage();
 
             int startingIndex = 0;
 
-            aClass.Id = reader.GetSafeInt32(startingIndex++);
-            aClass.Name = reader.GetSafeString(startingIndex++);
-            aClass.Description = reader.GetSafeString(startingIndex++);
-            aClass.DateTime = reader.GetSafeDateTime(startingIndex++);
-            aClass.Location.Id = reader.GetSafeInt32(startingIndex++);
-            aClass.Location.Name = reader.GetSafeString(startingIndex++);
-            aClass.Location.LineOne = reader.GetSafeString(startingIndex++);
-            aClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
-            aClass.Location.City = reader.GetSafeString(startingIndex++);
-            aClass.Location.State = reader.GetSafeString(startingIndex++);
-            aClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
-            aClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
-            aClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
-            aClass.IsActive = reader.GetSafeBool(startingIndex++);
-            aClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
-            aClass.DateModified = reader.GetSafeDateTime(startingIndex++);
-            aClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
-            aClass.ClassCount = reader.GetInt32(startingIndex++);
+            myClass.Id = reader.GetSafeInt32(startingIndex++);
+            myClass.Name = reader.GetSafeString(startingIndex++);
+            myClass.Description = reader.GetSafeString(startingIndex++);
+            myClass.DateTime = reader.GetSafeDateTime(startingIndex++);
+            myClass.Location.Id = reader.GetSafeInt32(startingIndex++);
+            myClass.Location.Name = reader.GetSafeString(startingIndex++);
+            myClass.Location.LineOne = reader.GetSafeString(startingIndex++);
+            myClass.Location.LineTwo = reader.GetSafeString(startingIndex++);
+            myClass.Location.City = reader.GetSafeString(startingIndex++);
+            myClass.Location.State = reader.GetSafeString(startingIndex++);
+            myClass.Location.ZipCode = reader.GetSafeInt32(startingIndex++);
+            myClass.CoverImage.Id = reader.GetSafeInt32(startingIndex++);
+            myClass.CoverImage.ImgUrl = reader.GetSafeString(startingIndex++);
+            myClass.IsActive = reader.GetSafeBool(startingIndex++);
+            myClass.DateCreated = reader.GetSafeDateTime(startingIndex++);
+            myClass.DateModified = reader.GetSafeDateTime(startingIndex++);
+            myClass.CreatedBy = reader.GetSafeInt32(startingIndex++);
+            myClass.ClassCount = reader.GetInt32(startingIndex++);
 
-            return aClass;
+            return myClass;
         }
 
         private static void AddCommonParams(ClassAddRequest model, SqlParameterCollection col)

@@ -92,7 +92,7 @@ namespace Coti.Web.Api.Controllers
         }
 
         [HttpGet("my-classes")]
-        public ActionResult<ItemResponse<Paged<Class>>> GetByUser(int pageIndex, int pageSize)
+        public ActionResult<ItemResponse<Paged<MemberClass>>> GetByUser(int pageIndex, int pageSize)
         {
             int iCode = 200;
 
@@ -107,7 +107,7 @@ namespace Coti.Web.Api.Controllers
             }
             try
             {
-                Paged<Class> paged = _service.GetByUser(pageIndex, pageSize, userId);
+                Paged<MemberClass> paged = _service.GetByUser(pageIndex, pageSize, userId);
 
                 if (paged == null)
                 {
@@ -116,7 +116,7 @@ namespace Coti.Web.Api.Controllers
                 }
                 else
                 {
-                    response = new ItemResponse<Paged<Class>> { Item = paged };
+                    response = new ItemResponse<Paged<MemberClass>> { Item = paged };
                 }
             }
             catch (Exception ex)

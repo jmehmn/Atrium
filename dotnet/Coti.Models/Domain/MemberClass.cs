@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Coti.Models.Domain
 {
-    public class Class
+    public class MemberClass
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
-        
+
         public string Description { get; set; }
 
         public DateTime DateTime { get; set; }
@@ -27,8 +27,5 @@ namespace Coti.Models.Domain
         public int CreatedBy { get; set; }
 
         public int ClassCount { get; set; }
-
-        public List<Member> Member { get; set; }
-
     }
 }
